@@ -1,0 +1,23 @@
+#!/bin/bash
+# If your build produces a war file, use this action hook to deploy it to tomcat.
+# This action hook is optional, and is not enabled by default (it has no executable permission). 
+# To enable, use the command: git update-index --add --chmod +x .openshift/action_hooks/deploy
+export JAVA_HOME=${OPENSHIFT_DATA_DIR}jdk1.8.0_121
+export TOMCAT_HOME=${OPENSHIFT_DATA_DIR}apache-tomcat-8.5.13
+export M2_HOME=${OPENSHIFT_DATA_DIR}apache-maven-3.5.0
+export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+
+# update me!
+app_name=myapp
+
+# cleanup tomcat
+rm -rf $TOMCAT_HOME/work
+rm -f $TOMCAT_HOME/logs/*
+rm -f $TOMCAT_HOME/webapps/${app_name}.war
+rm -rf $TOMCAT_HOME/webapps/$app_name
+
+# deploy war to tomcat
+if [ -f ${OPENSHIFT_REPO_DIR}build/${app_name}.war ]
+then
+	unzip -d $TOMCAT_HOME/webapps/$app_name ${OPENSHIFT_REPO_DIR}build/${app_name}.war
+fi
