@@ -1,5 +1,5 @@
 
-## Quickstart to run Apache Tomcat 8 on OpenShift##
+## Quickstart to run Apache Tomcat 8 on OpenShift ##
 
 #### Added support for Oracle Java 1.8 and Maven 3.5 ####
 
