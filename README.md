@@ -13,7 +13,7 @@ rhc app create tomcat8 diy
 2. Add git remote to Tomcat 8 OpenShift quickstart and pull code from it.
 ```
 cd tomcat8
-git remote add upstream https://github.com/mddorfli/openshift-java8-tomcat8-quickstart.git
+git remote add upstream https://github.com/mddorfli/openshift-oracle-java8-tomcat8-quickstart.git
 git pull -s recursive -X theirs upstream master
 ```
 If you get an error saying ```fatal: refusing to merge unrelated histories``` use
