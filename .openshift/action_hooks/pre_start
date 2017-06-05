@@ -1,13 +1,13 @@
 #!/bin/bash
 export JAVA_HOME=${OPENSHIFT_DATA_DIR}jdk1.8.0_121
-export TOMCAT_HOME=${OPENSHIFT_DATA_DIR}apache-tomcat-8.5.13
+export TOMCAT_HOME=${OPENSHIFT_DATA_DIR}apache-tomcat-8.5.15
 export M2_HOME=${OPENSHIFT_DATA_DIR}apache-maven-3.5.0
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
 # install tomcat
 if [ ! -d $TOMCAT_HOME ]
 then
-	tomcat_inst_file=apache-tomcat-8.5.13.tar.gz
+	tomcat_inst_file=apache-tomcat-8.5.15.tar.gz
 	cd $OPENSHIFT_DATA_DIR
 	wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.13/bin/$tomcat_inst_file
 	tar -vxf $tomcat_inst_file
