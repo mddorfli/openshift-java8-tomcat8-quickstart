@@ -1,6 +1,6 @@
 #!/bin/bash
 tomcat_version=8.5.15
-export JAVA_HOME=${OPENSHIFT_DATA_DIR}jdk1.8.0_121
+export JAVA_HOME=${OPENSHIFT_DATA_DIR}jdk1.8.0_131
 export TOMCAT_HOME=${OPENSHIFT_DATA_DIR}apache-tomcat-${tomcat_version}
 export M2_HOME=${OPENSHIFT_DATA_DIR}apache-maven-3.5.0
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
@@ -8,9 +8,9 @@ export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 # install java
 if [ ! -d $JAVA_HOME ]
 then
-	java_inst_file=jdk-8u121-linux-x64.tar.gz
+	java_inst_file=jdk-8u131-linux-x64.tar.gz
 	cd $OPENSHIFT_DATA_DIR
-	wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/$java_inst_file
+	wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/$java_inst_file
 	tar -vxf $java_inst_file
 	rm -f $java_inst_file
 fi
